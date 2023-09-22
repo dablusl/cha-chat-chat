@@ -6,6 +6,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new SocketServer(server);
 
+const PORT = process.env.PORT || 3000; // Use the PORT environment variable if available, or default to 3000
+
 io.on('connection', (socket) => {
   console.log('Client connected');
 
@@ -16,10 +18,10 @@ io.on('connection', (socket) => {
       //send message to all clients
       body,
       from: 'other person',
-    })
+    });
   });
 });
- 
-server.listen(PORT);
 
-console.log('listening on port', PORT);
+server.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
