@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
-const socket = io('wss://cha-chat-chat.vercel.app/');
+const socket = io('/');
 
 function App() {
   const [message, setMessage] = useState('');
