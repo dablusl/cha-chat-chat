@@ -8,6 +8,8 @@ const io = new SocketServer(server);
 
 const PORT = process.env.PORT || 3000;
 
+console.log('Starting server...');
+
 io.on('connection', (socket) => {
   console.log('Client connected');
 
