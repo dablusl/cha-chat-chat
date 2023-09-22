@@ -1,12 +1,16 @@
 import express from 'express';
 import http from 'http';
 import { Server as SocketServer } from 'socket.io';
+import cors from 'cors'; // Import the CORS middleware
 
 const app = express();
 const server = http.createServer(app);
 const io = new SocketServer(server);
 
 const PORT = process.env.PORT || 3000;
+
+// Apply CORS middleware to allow all origins (not recommended for production)
+app.use(cors());
 
 console.log('Starting server...');
 
